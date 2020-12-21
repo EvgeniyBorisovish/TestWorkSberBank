@@ -1,25 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import {
+  correctResult,
+  printObject,
+  initialArray,
+  getCorrectingObject
+} from "./utils";
 
-function App() {
+let correctResultPrint = null;
+let initialArrayPrint = null;
+
+export default function App() {
+
+ const [status, setStatus] = useState(false);
+
+ const [loading, setLoading] = useState(false);
+
+ const [result, setResult] = useState(null);
+
+  const handler = () => {
+    if (!status) {
+      setLoading(true);
+      const myRes = printObject(getCorrectingObject(initialArray));
+
+      correctResultPrint = printObject(correctResult);
+      initialArrayPrint = printObject(initialArray);
+
+      //setTimeout(() => {
+        setResult(myRes);
+        setStatus(true);
+        setLoading(false);
+      //}, 2000);
+    } else if (status) {
+      setStatus(false);
+      setResult(null);
+    }
+  };
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Преобразуйте массив в объект, отсортированный по тэгам</h1>
+      <button className="but_getVal" onClick={handler}
+       disabled={loading}>
+        {!status && <span>Выполнить</span>}
+        {status && <span>Закрыть</span>}
+      </button>
+      <div className="conteiner" style={{ opacity: !status ? 0 : 1 }}>
+        <div className="result_tree">
+          <p>Исходный массив</p>
+          <div className="white_border">
+            <pre>{initialArrayPrint}</pre>
+          </div>
+        </div>
+        <div className="result_tree">
+          <p>Корректный объект</p>
+          <div
+            className={
+              result === correctResultPrint ? "green_border" : "red_border"
+            }
+          >
+            <pre>{correctResultPrint}</pre>
+          </div>
+        </div>
+        <div className="operation">
+          <div
+            className="znak"
+            style={{ color: result === correctResultPrint ? "green" : "red" ,overflowX:"hidden"}}
+          >
+            {result === correctResultPrint ? "=" : <span>&ne;</span>}
+          </div>
+        </div>
+        <div className="result_tree">
+          <p>Отсортированный по тегам</p>
+          <div
+            className={
+              result === correctResultPrint ? "green_border" : "red_border"
+            }
+          >
+            {!status && ""}
+            {status && <pre>{result}</pre>}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;

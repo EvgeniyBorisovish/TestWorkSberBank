@@ -1,38 +1,61 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.but_getVal {
+  padding: 20px 40px;
+  border-radius: 3px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.conteiner div {
+  overflow: auto;
+  border-radius: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.conteiner {
+  margin-top: 20px;
+  display: flex;
+  align-content: stretch;
+  height: 400px;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 20px;
+}
+.result_tree {
+  width: 45%;
+  overflow: hidden;
+  padding-right: 10px;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
+}
+
+.result_tree div {
+  text-align: left;
+}
+
+.white_border {
+  border: 1px solid white;
+}
+
+.green_border {
+  border: 1px solid green;
+}
+
+.red_border {
+  border: 1px solid red;
+}
+
+.operation {
+  margin: 0px 20px;
+  padding: 0px 20px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: start;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.znak {
+  padding: 0 10px;
+  overflow-x: hidden;
 }
