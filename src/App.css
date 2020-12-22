@@ -2,10 +2,15 @@
   font-family: sans-serif;
   text-align: center;
 }
-.but_getVal {
-  padding: 20px 40px;
-  border-radius: 3px;
+.but_getVal{
+  color: white;
+  border-radius: 5px;
+  background-color: #1831C1;
+  padding: 20px 60px;
+  border: none;
+  outline: none;
 }
+
 .conteiner div {
   overflow: auto;
   border-radius: 5px;
@@ -18,7 +23,30 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 20px;
+  animation-duration: 5s;
+  opacity: 0;
 }
+
+@keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
+@keyframes opacityAnimationReverse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity:0;
+  }
+}
+
+
+
 .result_tree {
   width: 45%;
   overflow: hidden;
@@ -59,3 +87,4 @@
   padding: 0 10px;
   overflow-x: hidden;
 }
+

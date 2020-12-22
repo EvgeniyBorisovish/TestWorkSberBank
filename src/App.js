@@ -25,27 +25,27 @@ export default function App() {
 
       correctResultPrint = printObject(correctResult);
       initialArrayPrint = printObject(initialArray);
-
-      //setTimeout(() => {
+      
         setResult(myRes);
         setStatus(true);
         setLoading(false);
-      //}, 2000);
+      
     } else if (status) {
       setStatus(false);
       setResult(null);
     }
   };
-  
+
   return (
     <div className="App">
       <h1>Преобразуйте массив в объект, отсортированный по тэгам</h1>
       <button className="but_getVal" onClick={handler}
        disabled={loading}>
         {!status && <span>Выполнить</span>}
-        {status && <span>Закрыть</span>}
+        {status && <span>Скрыть</span>}
       </button>
-      <div className="conteiner" style={{ opacity: !status ? 0 : 1 }}>
+      
+      <div className="conteiner" style={{ animationName: !status ? "":"opacityAnimation", opacity: !status ? 0:1  }}>
         <div className="result_tree">
           <p>Исходный массив</p>
           <div className="white_border">
