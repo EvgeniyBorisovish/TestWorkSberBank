@@ -32,8 +32,7 @@ export default function App() {
       
     } else if (status) {
       setStatus(false);
-      setResult(null);
-    }
+      }
   };
 
   return (
@@ -45,7 +44,7 @@ export default function App() {
         {status && <span>Скрыть</span>}
       </button>
       
-      <div className="conteiner" style={{ animationName: !status ? "":"opacityAnimation", opacity: !status ? 0:1  }}>
+      <div className="conteiner" style={{ animationName: !status ?  (!correctResultPrint?"":"opacityAnimationReverse"):"opacityAnimation", opacity: !status ? 0:1  }}>
         <div className="result_tree">
           <p>Исходный массив</p>
           <div className="white_border">
@@ -77,8 +76,7 @@ export default function App() {
               result === correctResultPrint ? "green_border" : "red_border"
             }
           >
-            {!status && ""}
-            {status && <pre>{result}</pre>}
+            <pre>{result}</pre>
           </div>
         </div>
       </div>
