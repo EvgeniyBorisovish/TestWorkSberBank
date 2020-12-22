@@ -9,6 +9,7 @@
   padding: 20px 60px;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .conteiner div {
